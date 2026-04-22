@@ -72,6 +72,7 @@ resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.s3_bucket.id
   key          = "index.html"
   source       = "www/index.html"
+  etag         = filemd5("www/index.html")
   content_type = "text/html"
 }
 
@@ -79,5 +80,6 @@ resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.s3_bucket.id
   key          = "error.html"
   source       = "www/error.html"
+  etag         = filemd5("www/error.html")
   content_type = "text/html"
 }
